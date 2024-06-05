@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Відправлення адреси e-mail</title>
+    <script>
+        function sendEmail() {
+            var recipient = document.getElementById("recipient").value;
+            var subject = document.getElementById("subject").value;
+            var body = document.getElementById("body").value;
+            
+            // Тут можна виконати додаткову валідацію або обробку даних перед відправленням
+            
+            // Відправлення даних на сервер (замість mailto: адреси)
+            window.location.href = "mailto:" + recipient + "?subject=" + subject + "&body=" + body;
+        }
+    </script>
+</head>
+<body>
+    <h1>Відправлення адреси e-mail</h1>
+    <form onsubmit="sendEmail(); return false;">
+        <label for="recipient">Адреса отримувача:</label><br>
+        <input type="email" id="recipient" required><br><br>
+        
+        <label for="subject">Тема:</label><br>
+        <input type="text" id="subject" required><br><br>
+        
+        <label for="body">Повідомлення:</label><br>
+        <textarea id="body" rows="4" required></textarea><br><br>
+        
+        <input type="submit" value="Відправити">
+    </form>
+</body>
+</html>
